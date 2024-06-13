@@ -11,4 +11,4 @@ git commit -m "first commit"
 git remote add origin https://github.com/NOMBRE_USUARIO/NOMBRE_PROYECTO.git
 
 # Empuja (push) los cambios locales en la rama "master" al repositorio remoto "origin" y establece la rama "master" como la rama predeterminada para futuras operaciones push.
-git push -u origin master
+git push -u origin master 
