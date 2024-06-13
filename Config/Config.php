@@ -11,7 +11,7 @@ const user = "kafka";
 const pass = "5jorgIPQLQy9if4OR5jjidRiYXrbZKoSCdr/DYCsuUc=";
 // Nombre de la base de datos a la que se conectará la aplicación
 const db = "biblioteca_mvc";
-// Conjunto de caracteres a usar en la conexión a la base de datos, aquí se define UTF-8
+// Conjunto de caracteres a usar en la conexión a la base de datos, aquí se define UTF-8 kill
 const charset = "charset=utf8";
 ?>
 
