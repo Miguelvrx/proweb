@@ -1,4 +1,4 @@
-# Inicializa un nuevo repositorio de Git en el directorio actual.
+# Inicializa un nuevo repositorio de Git en el directorio actual.s
 git init
 
 # Añade todos los archivos nuevos y modificados al área de preparación (staging area).
