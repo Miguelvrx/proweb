@@ -73,7 +73,7 @@
         // Mostrar/ocultar contraseña
         const inputContrasena = document.getElementById('clave');
         const checkMostrarContrasena = document.getElementById('mostrarContrasena');
-
+        //Funcion que permite mostrar y ocultar la contrasena
         checkMostrarContrasena.addEventListener('change', function() {
             if (this.checked) {
                 inputContrasena.type = 'text'; // Muestra la contraseña
