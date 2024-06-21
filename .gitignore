@@ -43,6 +43,3 @@ uploads/
 # Ignorar otros archivos y directorios específicos
 composer.lock
 public/build/
-
-# Ignorar index.php
-index.php
