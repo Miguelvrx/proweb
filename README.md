@@ -33,9 +33,9 @@ Configure la base de datos MySQL utilizando los scripts proporcionados en la car
 
 ## Tecnologías Utilizadas
 
-- PHP 7.4+
-- MySQL 5.7+
-- JavaScript (ES6+)
+- PHP 
+- MySQL 
+- JavaScript
 - CSS3
 - Arquitectura MVC
 
