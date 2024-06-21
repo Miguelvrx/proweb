@@ -31,6 +31,14 @@ git clone https://github.com/Miguelvrx/proyecto-pro.git`
 Asegúrese de tener instalado PHP, MySQL y un servidor web como Apache.
 Configure la base de datos MySQL utilizando los scripts proporcionados en la carpeta database.
 
+## Tecnologías Utilizadas
+
+- PHP 7.4+
+- MySQL 5.7+
+- JavaScript (ES6+)
+- CSS3
+- Arquitectura MVC
+
 ### Configurar el entorno
 
 Edite el archivo de configuración Config.php con los detalles de su base de datos y otras configuraciones necesarias.
