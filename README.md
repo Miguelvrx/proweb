@@ -19,7 +19,7 @@ Este proyecto es útil para bibliotecas que buscan mejorar la gestión de sus re
 Cómo Comenzar
 Para comenzar a utilizar el sistema, siga estos pasos:
 
-Clonar el repositorio: git clone https://github.com/Miguelvrx/proyecto-pro.git
+Clonar el repositorio bash: git clone https://github.com/Miguelvrx/proyecto-pro.git
 
 Instalar las dependencias necesarias: Asegúrese de tener instalado PHP, MySQL y un servidor web como Apache.
 Configure la base de datos MySQL utilizando los scripts proporcionados en la carpeta database.
