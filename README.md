@@ -28,7 +28,7 @@ Primero, clona el repositorio en tu máquina local usando el siguiente comando:
 git clone https://github.com/Miguelvrx/proyecto-pro.git`
 ```
 
-### Instalar las dependencias necesarias
+### 🛠 Instalar las dependencias necesarias
 
 Asegúrese de tener instalado PHP, MySQL y un servidor web como Apache.
 Configure la base de datos MySQL utilizando los scripts proporcionados en la carpeta database.
