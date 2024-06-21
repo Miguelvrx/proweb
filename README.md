@@ -4,9 +4,9 @@
 
 Este proyecto es un sistema de gestión de préstamos de libros diseñado para bibliotecas públicas y privadas. El sistema permite el registro eficiente de clientes, libros, materias y autores, así como la gestión de préstamos y devoluciones. Desarrollado con PHP, MySQL, JavaScript y CSS siguiendo la arquitectura MVC, garantiza un rendimiento óptimo y una experiencia de usuario intuitiva.
 
-Funcionalidades
+### Funcionalidades
 
-Registro de Clientes: Permite añadir y gestionar información de los usuarios de la biblioteca.
+- Registro de Clientes: Permite añadir y gestionar información de los usuarios de la biblioteca.
 Gestión de Libros: Facilita el registro y la actualización de información de los libros disponibles en la biblioteca.
 Clasificación por Materias: Organiza los libros según sus materias, mejorando la búsqueda y el acceso a la información.
 Autores: Registro y gestión de información sobre los autores de los libros.
