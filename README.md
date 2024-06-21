@@ -16,8 +16,14 @@ Este proyecto es un sistema de gestión de préstamos de libros diseñado para b
 
 Este proyecto es útil para bibliotecas que buscan mejorar la gestión de sus recursos bibliográficos y la atención a sus usuarios. Con un sistema automatizado, se reducen los errores humanos y se optimizan los procesos de registro, préstamo y devolución de libros, permitiendo a las bibliotecas ofrecer un servicio más rápido y preciso.
 
+### Comenzando
 Para comenzar a utilizar el sistema, siga estos pasos:
-Clonar el repositorio: git clone https://github.com/Miguelvrx/proyecto-pro.git
+
+### Clonar el repositorio
+Primero, clona el repositorio en tu máquina local usando el siguiente comando:
+
+`$ git clone https://github.com/Miguelvrx/proyecto-pro.git `
+
 
 Instalar las dependencias necesarias: Asegúrese de tener instalado PHP, MySQL y un servidor web como Apache.
 Configure la base de datos MySQL utilizando los scripts proporcionados en la carpeta database.
