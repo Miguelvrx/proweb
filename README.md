@@ -22,7 +22,9 @@ Para comenzar a utilizar el sistema, siga estos pasos:
 ### Clonar el repositorio
 Primero, clona el repositorio en tu máquina local usando el siguiente comando:
 
-`$ git clone https://github.com/Miguelvrx/proyecto-pro.git `
+```bash
+git clone https://github.com/Miguelvrx/proyecto-pro.git`
+```
 
 ### Instalar las dependencias necesarias
 
