@@ -24,20 +24,26 @@ Primero, clona el repositorio en tu máquina local usando el siguiente comando:
 
 `$ git clone https://github.com/Miguelvrx/proyecto-pro.git `
 
+### Instalar las dependencias necesarias
 
-Instalar las dependencias necesarias: Asegúrese de tener instalado PHP, MySQL y un servidor web como Apache.
+Asegúrese de tener instalado PHP, MySQL y un servidor web como Apache.
 Configure la base de datos MySQL utilizando los scripts proporcionados en la carpeta database.
 
-Configurar el entorno: Edite el archivo de configuración Config.php con los detalles de su base de datos y otras configuraciones necesarias.
+### Configurar el entorno
 
-Ejecutar el proyecto: Inicie el servidor web y acceda al sistema a través de su navegador.
-Soporte
+Edite el archivo de configuración Config.php con los detalles de su base de datos y otras configuraciones necesarias.
 
-Si necesita ayuda con el proyecto, puede:
+### Ejecutar el proyecto 
+
+Inicie el servidor web y acceda al sistema a través de su navegador.
+
+### Soporte
+
+### Si necesita ayuda con el proyecto, puede:
 
 Revisar la documentación del proyecto.
 Contactar al mantenedor principal a través de su correo electrónico: utp0147036@alumno.utpuebla.edu.mx
 
-Mantenimiento y Contribuciones:
+#### Mantenimiento y Contribuciones:
 
 El proyecto es mantenido por Miguel Angel Potrero Iletl, Jared Tlahuetl Epitacio y Montserrat Martìnez Flores. Las contribuciones son bienvenidas y se pueden hacer a través de pull requests en GitHub. Por favor, siga las pautas de contribución proporcionadas en el archivo CONTRIBUTING.md.
