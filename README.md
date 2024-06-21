@@ -7,12 +7,12 @@ Este proyecto es un sistema de gestión de préstamos de libros diseñado para b
 ### Funcionalidades
 
 - Registro de Clientes: Permite añadir y gestionar información de los usuarios de la biblioteca.
-Gestión de Libros: Facilita el registro y la actualización de información de los libros disponibles en la biblioteca.
-Clasificación por Materias: Organiza los libros según sus materias, mejorando la búsqueda y el acceso a la información.
-Autores: Registro y gestión de información sobre los autores de los libros.
-Préstamos y Devoluciones: Realiza y controla los préstamos y devoluciones de libros de manera eficiente, reduciendo el tiempo de espera y mejorando la administración de los recursos.
+- Gestión de Libros: Facilita el registro y la actualización de información de los libros disponibles en la biblioteca.
+- Clasificación por Materias: Organiza los libros según sus materias, mejorando la búsqueda y el acceso a la información.
+- Autores: Registro y gestión de información sobre los autores de los libros.
+- Préstamos y Devoluciones: Realiza y controla los préstamos y devoluciones de libros de manera eficiente, reduciendo el tiempo de espera y mejorando la administración de los recursos.
 
-#Utilidad del Proyecto
+### Utilidad del Proyecto
 
 Este proyecto es útil para bibliotecas que buscan mejorar la gestión de sus recursos bibliográficos y la atención a sus usuarios. Con un sistema automatizado, se reducen los errores humanos y se optimizan los procesos de registro, préstamo y devolución de libros, permitiendo a las bibliotecas ofrecer un servicio más rápido y preciso.
 
