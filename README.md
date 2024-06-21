@@ -12,14 +12,12 @@ Clasificación por Materias: Organiza los libros según sus materias, mejorando 
 Autores: Registro y gestión de información sobre los autores de los libros.
 Préstamos y Devoluciones: Realiza y controla los préstamos y devoluciones de libros de manera eficiente, reduciendo el tiempo de espera y mejorando la administración de los recursos.
 
-Utilidad del Proyecto
+#Utilidad del Proyecto
 
 Este proyecto es útil para bibliotecas que buscan mejorar la gestión de sus recursos bibliográficos y la atención a sus usuarios. Con un sistema automatizado, se reducen los errores humanos y se optimizan los procesos de registro, préstamo y devolución de libros, permitiendo a las bibliotecas ofrecer un servicio más rápido y preciso.
 
-Cómo Comenzar
 Para comenzar a utilizar el sistema, siga estos pasos:
-
-Clonar el repositorio bash: git clone https://github.com/Miguelvrx/proyecto-pro.git
+Clonar el repositorio: git clone https://github.com/Miguelvrx/proyecto-pro.git
 
 Instalar las dependencias necesarias: Asegúrese de tener instalado PHP, MySQL y un servidor web como Apache.
 Configure la base de datos MySQL utilizando los scripts proporcionados en la carpeta database.
