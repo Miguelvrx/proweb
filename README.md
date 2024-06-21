@@ -31,7 +31,7 @@ git clone https://github.com/Miguelvrx/proyecto-pro.git`
 Asegúrese de tener instalado PHP, MySQL y un servidor web como Apache.
 Configure la base de datos MySQL utilizando los scripts proporcionados en la carpeta database.
 
-## Tecnologías Utilizadas
+### Tecnologías Utilizadas
 
 - PHP 
 - MySQL 
