@@ -1,6 +1,6 @@
 # Gestión de Préstamos de Libros en Bibliotecas
 
-Descripción del Proyecto
+### Descripción del Proyecto
 
 Este proyecto es un sistema de gestión de préstamos de libros diseñado para bibliotecas públicas y privadas. El sistema permite el registro eficiente de clientes, libros, materias y autores, así como la gestión de préstamos y devoluciones. Desarrollado con PHP, MySQL, JavaScript y CSS siguiendo la arquitectura MVC, garantiza un rendimiento óptimo y una experiencia de usuario intuitiva.
 
