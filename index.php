@@ -1,5 +1,5 @@
 <?php
-    // Se incluyen archivos necesarios para la configuración y funciones auxiliares
+    // Se incluyen archivos necesarios para la configuración y funciones auxiliaress
     require_once "Config/Config.php";
     require_once "Config/Helpers.php";
     
