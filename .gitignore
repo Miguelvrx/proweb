@@ -1,2 +1,2 @@
-# Ignorar archivos de configuración sensibles
-.env
+# Ignorar archivos de base de datos
+/DB/biblioteca.sql
