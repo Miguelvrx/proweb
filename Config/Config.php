@@ -1,5 +1,5 @@
 <?php
-// Definición de constantes para la configuración de la conexión a la base de datos mediante locales 
+// Definición de constantes para la configuración de la conexión a la base de datos mediante localhost 
 
 // URL base de la aplicación
 const base_url = "http://localhost/biblio/";
