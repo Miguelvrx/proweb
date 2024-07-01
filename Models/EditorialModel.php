@@ -31,6 +31,8 @@ class EditorialModel extends Query{
         }
         return $res;
     }
+
+    
 }
 
 ?>
