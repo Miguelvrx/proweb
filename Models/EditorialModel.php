@@ -23,7 +23,7 @@ class EditorialModel extends Query{
             if ($data == 1) {
                 $res = "ok";
             }else{
-                $res = "error valiste queso UwU";
+                $res = "error";
             }
 
         }else{
@@ -32,6 +32,7 @@ class EditorialModel extends Query{
         return $res;
     }
 
+    
     
 }
 
