@@ -39,6 +39,7 @@ class EditorialModel extends Query{
     }
     
     
+    
 }
 
 ?>
