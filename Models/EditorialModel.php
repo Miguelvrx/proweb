@@ -23,7 +23,7 @@ class EditorialModel extends Query{
             if ($data == 1) {
                 $res = "ok";
             }else{
-                $res = "error valiste queso UwU";
+                $res = "error";
             }
 
         }else{
@@ -32,6 +32,12 @@ class EditorialModel extends Query{
         return $res;
     }
 
+    public function editEditorial($id){
+        $sql = "SELECT * FROM editorial WHERE id = '$id'";
+        $res = $this->select($sql);
+        return $res;
+    }
+    
     
 }
 
