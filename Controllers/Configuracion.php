@@ -61,5 +61,37 @@ class Configuracion extends Controller{
         die();
     }
     
+    public function admin()
+    {
+        $data['libros'] = $this->model->selectDatos('libro');
+        $data['materias'] = $this->model->selectDatos('materia');
+        $data['estudiantes'] = $this->model->selectDatos('estudiante');
+        $data['autor'] = $this->model->selectDatos('autor');
+        $data['editorial'] = $this->model->selectDatos('editorial');
+        $data['prestamos'] = $this->model->selectDatos('prestamo');
+        $data['usuarios'] = $this->model->selectDatos('usuarios');
+        $this->views->getView($this, "home", $data);
+    }
+    public function grafico()
+    {
+        $data = $this->model->getReportes();
+        echo json_encode($data);
+        die();
+    }
+    public function error()
+    {
+        $this->views->getView($this, "error");
+    }
+    public function vacio()
+    {
+        $this->views->getView($this, "vacio");
+    }
+    public function verificar()
+    {
+        $date = date('Y-m-d');
+        $data = $this->model->getVerificarPrestamos($date);
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        die();
+    }
 }
 ?>
