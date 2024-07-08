@@ -20,5 +20,46 @@ class Configuracion extends Controller{
         $data = $this->model->selectConfiguracion();
         $this->views;
     }
+
+    public function actualizar()
+    {
+		$id_user = $_SESSION['id_usuario'];
+        $perm = $this->model->verificarPermisos($id_user, "Configuracion");
+        if (!$perm && $id_user != 1) {
+            $this->views->getView($this, "permisos");
+            exit;
+        }
+        $id = strClean($_POST['id']);
+        $nombre = strClean($_POST['nombre']);
+        $telefono = strClean($_POST['telefono']);
+        $direccion = strClean($_POST['direccion']);
+        $correo = strClean($_POST['correo']);
+        $img = $_FILES['imagen'];
+        $tmpName = $img['tmp_name'];
+        if (empty($id) || empty($nombre) || empty($telefono) || empty($direccion) || empty($correo)) {
+            $msg = array('msg' => 'Todos los campos deben de ser obligatorios!', 'icono' => 'warning');
+        } else {
+            $name = "logo.png";
+            $destino = 'Assets/img/logo.png';
+            $data = $this->model->actualizarConfig($nombre, $telefono, $direccion, $correo, $name, $id);
+            if ($data == "modificado") {
+                $msg = array('msg' => 'Datos de la empresa modificados con éxito!', 'icono' => 'success');
+                if (!empty($img['name'])) {
+                    $extension = pathinfo($img['name'], PATHINFO_EXTENSION);
+                    $formatos_permitidos =  array('png', 'jpeg', 'jpg');
+                    $extension = pathinfo($img['name'], PATHINFO_EXTENSION);
+                    if (!in_array($extension, $formatos_permitidos)) {
+                        $msg = array('msg' => 'Archivo no permitido', 'icono' => 'warning');
+                    }else{
+                        move_uploaded_file($tmpName, $destino);
+                    }
+                }
+            }
+        }
+        
+        echo json_encode($msg, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+    
 }
 ?>
