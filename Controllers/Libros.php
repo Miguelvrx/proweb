@@ -114,6 +114,50 @@ class Libros extends Controller{
         die();
     }
 
+    public function eliminar($id)
+    {
+        $data = $this->model->estadoLibros(0, $id);
+        if ($data == 1) {
+            $msg = array('msg' => 'Libro dado de baja!', 'icono' => 'success');
+        } else {
+            $msg = array('msg' => 'Error al registrarse!', 'icono' => 'error');
+        }
+        echo json_encode($msg, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+    public function reingresar($id)
+    {
+        $data = $this->model->estadoLibros(1, $id);
+        if ($data == 1) {
+            $msg = array('msg' => 'Libro reingresado!', 'icono' => 'success');
+        } else {
+            $msg = array('msg' => 'Error al volver a introducir el libro!', 'icono' => 'error');
+        }
+        echo json_encode($msg, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+    public function verificar($id_libro)
+    {
+        if (is_numeric($id_libro)) {
+            $data = $this->model->editLibros($id_libro);
+            if (!empty($data)) {
+                $msg = array('cantidad' => $data['cantidad'], 'icono' => 'success');
+            }
+        }else{
+            $msg = array('msg' => 'Error Fatal', 'icono' => 'error');
+        }
+        echo json_encode($msg, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+    public function buscarLibro()
+    {
+        if (isset($_GET['lb'])) {
+            $valor = $_GET['lb'];
+            $data = $this->model->buscarLibro($valor);
+            echo json_encode($data, JSON_UNESCAPED_UNICODE);
+            die();
+        }
+    }
 
 
 
