@@ -56,14 +56,14 @@ class Libros extends Controller{
         $fecha = date("YmdHis");
         $tmpName = $img['tmp_name'];
         if (empty($titulo) || empty($autor) || empty($editorial) || empty($materia) || empty($cantidad)) {
-            $msg = array('msg' => 'Todos os campos são exigidos!', 'icono' => 'warning');
+            $msg = array('msg' => 'Todos los campos son obligatorios!', 'icono' => 'warning');
         } else {
             if (!empty($name)) {
                 $extension = pathinfo($name, PATHINFO_EXTENSION);
                 $formatos_permitidos =  array('png', 'jpeg', 'jpg');
                 $extension = pathinfo($name, PATHINFO_EXTENSION);
                 if (!in_array($extension, $formatos_permitidos)) {
-                    $msg = array('msg' => 'Tipo de arquivo não permitido!', 'icono' => 'warning');
+                    $msg = array('msg' => 'Tipo de archivo no permitido!', 'icono' => 'warning');
                 } else {
                     $imgNombre = $fecha . ".jpg";
                     $destino = "Assets/img/libros/" . $imgNombre;
@@ -79,11 +79,11 @@ class Libros extends Controller{
                     if (!empty($name)) {
                         move_uploaded_file($tmpName, $destino);
                     }
-                    $msg = array('msg' => 'Livro cadastrado com sucesso!', 'icono' => 'success');
+                    $msg = array('msg' => 'Libro registrado exitosamente!', 'icono' => 'success');
                 } else if ($data == "existe") {
-                    $msg = array('msg' => 'Este livro já existe!', 'icono' => 'warning');
+                    $msg = array('msg' => 'Este libro ya existe.!', 'icono' => 'warning');
                 } else {
-                    $msg = array('msg' => 'Erro ao cadastrar o livro!', 'icono' => 'error');
+                    $msg = array('msg' => 'Error al registrar el libro.!', 'icono' => 'error');
                 }
             } else {
                 $imgDelete = $this->model->editLibros($id);
@@ -97,9 +97,9 @@ class Libros extends Controller{
                     if (!empty($name)) {
                         move_uploaded_file($tmpName, $destino);
                     }
-                    $msg = array('msg' => 'Livro alterado com sucesso!', 'icono' => 'success');
+                    $msg = array('msg' => 'Libro actualizado correctamente', 'icono' => 'success');
                 } else {
-                    $msg = array('msg' => 'Erro ao alterar o livro!', 'icono' => 'error');
+                    $msg = array('msg' => 'Error al actualizar el libro!', 'icono' => 'error');
                 }
             }
         }
