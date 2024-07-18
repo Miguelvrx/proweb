@@ -147,7 +147,7 @@ class Prestamos extends Controller
 
         //$pdf->Image(base_url . "Assets/img/logo.png", 55, 15, 20, 20, 'PNG');
         $pdf->SetFont('Arial', 'B', 8);
-        $pdf->Cell(15, 5, utf8_decode("Telefone: "), 0, 0, 'L');
+        $pdf->Cell(15, 5, utf8_decode("Telefono: "), 0, 0, 'L');
         $pdf->SetFont('Arial', '', 8);
         $pdf->Cell(15, 5, $datos['telefono'], 0, 1, 'L');
         $pdf->SetFont('Arial', 'B', 8);
