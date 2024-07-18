@@ -71,7 +71,5 @@ class LibrosModel extends Query{
         return $tiene;
 
     }
-    
-
 }
 ?>
