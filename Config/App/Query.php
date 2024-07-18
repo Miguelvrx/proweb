@@ -36,7 +36,19 @@ class Query extends Conexion{
         return $res;
     }
     
-    
+    public function insert(string $sql, array $datos)
+    {
+        $this->sql = $sql;
+        $this->datos = $datos;
+        $insert = $this->con->prepare($this->sql);
+        $data = $insert->execute($this->datos);
+        if ($data) {
+            $res = $this->con->lastInsertId();;
+        } else {
+            $res = 0;
+        }
+        return $res;
+    }
 }
 
 

@@ -1,5 +1,6 @@
 <?php
 class PrestamosModel extends Query
+
 {
     public function __construct()
     {
