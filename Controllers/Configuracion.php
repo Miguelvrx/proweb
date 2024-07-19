@@ -1,29 +1,28 @@
 <?php
-class Configuracion extends Controller{
-
+class Configuracion extends Controller
+{
     public function __construct()
     {
         session_start();
         if (empty($_SESSION['activo'])) {
-            header("location:". base_url);
+            header("location: " . base_url);
         }
         parent::__construct();
     }
-
-    public function index(){
+    public function index()
+    {
         $id_user = $_SESSION['id_usuario'];
-        $perm = $this->model->verificarPermisos($id_user,"Configuracion");
+        $perm = $this->model->verificarPermisos($id_user, "Configuracion");
         if (!$perm && $id_user != 1) {
-            $this->views->getView($this,"permisos");
+            $this->views->getView($this, "permisos");
             exit;
         }
         $data = $this->model->selectConfiguracion();
-        $this->views;
+        $this->views->getView($this, "index", $data);
     }
-
     public function actualizar()
     {
-		$id_user = $_SESSION['id_usuario'];
+        $id_user = $_SESSION['id_usuario'];
         $perm = $this->model->verificarPermisos($id_user, "Configuracion");
         if (!$perm && $id_user != 1) {
             $this->views->getView($this, "permisos");
@@ -37,30 +36,29 @@ class Configuracion extends Controller{
         $img = $_FILES['imagen'];
         $tmpName = $img['tmp_name'];
         if (empty($id) || empty($nombre) || empty($telefono) || empty($direccion) || empty($correo)) {
-            $msg = array('msg' => 'Todos los campos deben de ser obligatorios!', 'icono' => 'warning');
+            $msg = array('msg' => 'Todos los campos son obligatorios!', 'icono' => 'warning');
         } else {
             $name = "logo.png";
             $destino = 'Assets/img/logo.png';
             $data = $this->model->actualizarConfig($nombre, $telefono, $direccion, $correo, $name, $id);
             if ($data == "modificado") {
-                $msg = array('msg' => 'Datos de la empresa modificados con éxito!', 'icono' => 'success');
+                $msg = array('msg' => '¡Los datos de la empresa se modificaron correctamente!', 'icono' => 'success');
                 if (!empty($img['name'])) {
                     $extension = pathinfo($img['name'], PATHINFO_EXTENSION);
                     $formatos_permitidos =  array('png', 'jpeg', 'jpg');
                     $extension = pathinfo($img['name'], PATHINFO_EXTENSION);
                     if (!in_array($extension, $formatos_permitidos)) {
                         $msg = array('msg' => 'Archivo no permitido', 'icono' => 'warning');
-                    }else{
+                    } else {
                         move_uploaded_file($tmpName, $destino);
                     }
                 }
             }
         }
-        
+
         echo json_encode($msg, JSON_UNESCAPED_UNICODE);
         die();
     }
-    
     public function admin()
     {
         $data['libros'] = $this->model->selectDatos('libro');
@@ -93,7 +91,6 @@ class Configuracion extends Controller{
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();
     }
-
     public function libros()
     {
         $datos = $this->model->selectConfiguracion();
@@ -106,47 +103,43 @@ class Configuracion extends Controller{
         $pdf = new FPDF('P', 'mm', 'letter');
         $pdf->AddPage();
         $pdf->SetMargins(10, 10, 10);
-        $pdf->SetTitle("Prestamos");
+        $pdf->SetTitle("Empréstimos");
         $pdf->SetFont('Arial', 'B', 12);
-        $pdf->Cell(195, 5, utf8_decode($datos['nombre']), 0, 1, 'C');
+        $pdf->Cell(195, 5, mb_convert_encoding($datos['nombre'], 'ISO-8859-1', 'UTF-8'), 0, 1, 'C');
 
-        //$pdf->Image(base_url . "Assets/img/logo.png", 180, 10, 30, 30, 'PNG');
         $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(20, 5, utf8_decode("Telefono: "), 0, 0, 'L');
+        $pdf->Cell(20, 5, mb_convert_encoding("Telefone: ", 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
         $pdf->SetFont('Arial', '', 10);
         $pdf->Cell(20, 5, $datos['telefono'], 0, 1, 'L');
         $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(20, 5, utf8_decode("Direccion: "), 0, 0, 'L');
+        $pdf->Cell(20, 5, mb_convert_encoding("Endereço: ", 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
         $pdf->SetFont('Arial', '', 10);
-        $pdf->Cell(20, 5, utf8_decode($datos['direccion']), 0, 1, 'L');
+        $pdf->Cell(20, 5, mb_convert_encoding($datos['direccion'], 'ISO-8859-1', 'UTF-8'), 0, 1, 'L');
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(20, 5, "E-mail: ", 0, 0, 'L');
         $pdf->SetFont('Arial', '', 10);
-        $pdf->Cell(20, 5, utf8_decode($datos['correo']), 0, 1, 'L');
+        $pdf->Cell(20, 5, mb_convert_encoding($datos['correo'], 'ISO-8859-1', 'UTF-8'), 0, 1, 'L');
         $pdf->Ln();
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->SetFillColor(0, 0, 0);
         $pdf->SetTextColor(255, 255, 255);
-        $pdf->Cell(196, 5, utf8_decode ("Detalles de prestamos"), 1, 1, 'C', 1);
+        $pdf->Cell(196, 5, mb_convert_encoding("Detalhes do empréstimo", 'ISO-8859-1', 'UTF-8'), 1, 1, 'C', 1);
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->Cell(14, 5, utf8_decode('N°'), 1, 0, 'L');
-        $pdf->Cell(50, 5, utf8_decode('Estudantes'), 1, 0, 'L');
+        $pdf->Cell(14, 5, mb_convert_encoding('N°', 'ISO-8859-1', 'UTF-8'), 1, 0, 'L');
+        $pdf->Cell(50, 5, mb_convert_encoding('Estudantes', 'ISO-8859-1', 'UTF-8'), 1, 0, 'L');
         $pdf->Cell(87, 5, 'Livros', 1, 0, 'L');
-        $pdf->Cell(30, 5, utf8_decode ('Dt prestamo'), 1, 0, 'L');
+        $pdf->Cell(30, 5, mb_convert_encoding('Dt empréstimo', 'ISO-8859-1', 'UTF-8'), 1, 0, 'L');
         $pdf->Cell(15, 5, 'Quant.', 1, 1, 'L');
         $pdf->SetFont('Arial', '', 10);
         $contador = 1;
         foreach ($prestamo as $row) {
             $pdf->Cell(14, 5, $contador, 1, 0, 'L');
             $pdf->Cell(50, 5, $row['nombre'], 1, 0, 'L');
-            $pdf->Cell(87, 5, utf8_decode($row['titulo']), 1, 0, 'L');
+            $pdf->Cell(87, 5, mb_convert_encoding($row['titulo'], 'ISO-8859-1', 'UTF-8'), 1, 0, 'L');
             $pdf->Cell(30, 5, $row['fecha_prestamo'], 1, 0, 'L');
             $pdf->Cell(15, 5, $row['cantidad'], 1, 1, 'L');
             $contador++;
         }
         $pdf->Output("prestamos.pdf", "I");
     }
-
-    
 }
-?>

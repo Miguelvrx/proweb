@@ -14,25 +14,25 @@
                             <div class="form-group">
                                 <label for="nombre"><i class="fa fa-address-card" aria-hidden="true"></i>Nombre</label>
                                 <input id="id" type="hidden" name="id" value="<?php echo $data['id']; ?>">
-                                <input id="nombre" class="form-control" type="text" name="nombre" value="<?php echo $data['nombre']; ?>" required placeholder="Nome">
+                                <input id="nombre" class="form-control" type="text" name="nombre" value="<?php echo $data['nombre']; ?>" required placeholder="Nombre">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="telefono"><i class="fa fa-phone-square" aria-hidden="true"></i>Telefono</label>
-                                <input id="telefono" class="form-control" type="text" name="telefono" value="<?php echo $data['telefono']; ?>" required placeholder="Telefone">
+                                <input id="telefono" class="form-control" type="text" name="telefono" value="<?php echo $data['telefono']; ?>" required placeholder="Telefono">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="direccion"><i class="fa fa-home" aria-hidden="true"></i>Dirección</label>
-                                <input id="direccion" class="form-control" type="text" name="direccion" value="<?php echo $data['direccion']; ?>" required placeholder="Endereço">
+                                <input id="direccion" class="form-control" type="text" name="direccion" value="<?php echo $data['direccion']; ?>" required placeholder="Dirección">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="correo"><i class="fa fa-envelope" aria-hidden="true"></i>Correo Electrónico</label>
-                                <input id="correo" class="form-control" type="text" name="correo" value="<?php echo $data['correo']; ?>" required placeholder="E-mail">
+                                <input id="correo" class="form-control" type="text" name="correo" value="<?php echo $data['correo']; ?>" required placeholder="Email">
                             </div>
                         </div>
                         <div class="col-md-6">

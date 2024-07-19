@@ -26,20 +26,20 @@ class Usuarios extends Controller{
         for ($i=0; $i < count($data); $i++) { 
             if ($data[$i]['estado'] == 1) {
                 if ($data[$i]['id'] != 1) {
-                    $data[$i]['estado'] = '<span class="badge badge-success">Activo</span>';
+                    $data[$i]['estado'] = '<span class="badge badge-success">Ativo</span>';
                     $data[$i]['acciones'] = '<div>
                     <button class="btn btn-dark" onclick="btnRolesUser(' . $data[$i]['id'] . ')"><i class="fa fa-key"></i></button>
                     <button class="btn btn-primary" type="button" onclick="btnEditarUser(' . $data[$i]['id'] . ');"><i class="fa fa-pencil-square-o"></i></button>
                     <button class="btn btn-danger" type="button" onclick="btnEliminarUser(' . $data[$i]['id'] . ');"><i class="fa fa-trash-o"></i></button>
                     <div/>';
                 }else{
-                    $data[$i]['estado'] = '<span class="badge badge-success">Activo</span>';
+                    $data[$i]['estado'] = '<span class="badge badge-success">Ativo</span>';
                     $data[$i]['acciones'] = '<div class"text-center">
                     <span class="badge-primary p-1 rounded">Super Administrador</span>
                     </div>'; 
                 }
             }else {
-                $data[$i]['estado'] = '<span class="badge badge-danger">Inactivo</span>';
+                $data[$i]['estado'] = '<span class="badge badge-danger">Inativo</span>';
                 $data[$i]['acciones'] = '<div>
                 <button class="btn btn-success" type="button" onclick="btnReingresarUser(' . $data[$i]['id'] . ');"><i class="fa fa-reply-all"></i></button>
                 <div/>';
@@ -62,9 +62,9 @@ class Usuarios extends Controller{
                 $_SESSION['usuario'] = $data['usuario'];
                 $_SESSION['nombre'] = $data['nombre'];
                 $_SESSION['activo'] = true;
-                $msg = array('msg' => 'Processando...', 'icono' => 'success');
+                $msg = array('msg' => 'Procesando...', 'icono' => 'success');
             }else{
-                $msg = array('msg' => 'Nombre de usuario o contraseña incorrectos!', 'icono' => 'warning');
+                $msg = array('msg' => '¡Nombre de usuario o contraseña incorrecta!', 'icono' => 'warning');
             }
         }
         echo json_encode($msg, JSON_UNESCAPED_UNICODE);
@@ -84,24 +84,24 @@ class Usuarios extends Controller{
             if ($id == "") {
                 if (!empty($clave) && !empty($confirmar)) {
                     if ($clave != $confirmar) {
-                        $msg = array('msg' => 'La contraseña es obligatoria!', 'icono' => 'warning');
+                        $msg = array('msg' => '¡La contraseña es obligatoria!', 'icono' => 'warning');
                     } else {
                         $data = $this->model->registrarUsuario($usuario, $nombre, $hash);
                         if ($data == "ok") {
                             $msg = array('msg' => 'Usuario registrado', 'icono' => 'success');
                         } else if ($data == "existe") {
-                            $msg = array('msg' => 'Este usuário ya existe!', 'icono' => 'warning');
+                            $msg = array('msg' => '¡Este usuario ya existe!', 'icono' => 'warning');
                         } else {
-                            $msg = array('msg' => 'Error de registro!', 'icono' => 'error');
+                            $msg = array('msg' => '¡Error al registrarte!', 'icono' => 'error');
                         }
                     }
                 }
             }else{
                 $data = $this->model->modificarUsuario($usuario, $nombre, $id);
                 if ($data == "modificado") {
-                    $msg = array('msg' => 'Usuario modificado!', 'icono' => 'success');
+                    $msg = array('msg' => '¡Usuario cambiado!', 'icono' => 'success');
                 }else {
-                    $msg = array('msg' => 'Erro al modificar!', 'icono' => 'error');
+                    $msg = array('msg' => '¡Error al cambiar!', 'icono' => 'error');
                 }
             }
         }
@@ -118,9 +118,9 @@ class Usuarios extends Controller{
     {
         $data = $this->model->accionUser(0, $id);
         if ($data == 1) {
-            $msg = array('msg' => 'Usuario dado de baja!', 'icono' => 'success');
+            $msg = array('msg' => '¡Usuario caído!', 'icono' => 'success');
         }else{
-            $msg = array('msg' => 'Error de cancelación del usuario!', 'icono' => 'error');
+            $msg = array('msg' => '¡Error al registrar usuario!', 'icono' => 'error');
         }
         echo json_encode($msg, JSON_UNESCAPED_UNICODE);
         die();
@@ -129,9 +129,9 @@ class Usuarios extends Controller{
     {
         $data = $this->model->accionUser(1, $id);
         if ($data == 1) {
-            $msg = array('msg' => 'Usuario restablecido!', 'icono' => 'success');
+            $msg = array('msg' => 'Usuario restaurado!', 'icono' => 'success');
         } else {
-            $msg = array('msg' => 'Error de restauración!', 'icono' => 'error');
+            $msg = array('msg' => '¡Error al restaurar!', 'icono' => 'error');
         }
         echo json_encode($msg, JSON_UNESCAPED_UNICODE);
         die();
@@ -143,7 +143,7 @@ class Usuarios extends Controller{
         if (!$perm && $id_user != 1) {
             echo '<div class="card">
                     <div class="card-body text-center">
-                        <span class="badge badge-danger">Sin permiso</span>
+                        <span class="badge badge-danger">No permitido</span>
                     </div>
                 </div>';
             exit;
@@ -172,7 +172,7 @@ class Usuarios extends Controller{
                 </div>';
         }
         echo '</div>
-        <button class="btn btn-primary mt-3 btn-block" type="button" onclick="registrarPermisos(event);">Actualizar</button>';
+        <button class="btn btn-primary mt-3 btn-block" type="button" onclick="registrarPermisos(event);">Atualizar</button>';
         die();
     }
     public function registrarPermisos()
@@ -198,12 +198,12 @@ class Usuarios extends Controller{
                 $hash = hash("SHA256", strClean($_POST['clave_nueva']));
                 $data = $this->model->actualizarPass($hash, $id);
                 if ($data == "modificado") {
-                    $msg = array('msg' => 'Contraseña modificada!', 'icono' => 'success');
+                    $msg = array('msg' => '¡Contraseña cambiada!', 'icono' => 'success');
                 } else {
-                    $msg = array('msg' => 'Error al modificar!', 'icono' => 'warning');
+                    $msg = array('msg' => '¡Error al cambiar!', 'icono' => 'warning');
                 }
             } else {
-                $msg = array('msg' => 'Contraseña incorrecta!', 'icono' => 'warning');
+                $msg = array('msg' => '¡Contraseña incorrecta!', 'icono' => 'warning');
             }
             echo json_encode($msg, JSON_UNESCAPED_UNICODE);
             die();

@@ -48,19 +48,19 @@
                             <div class="form-group">
                                 <label for="codigo">Número</label>
                                 <input type="hidden" id="id" name="id">
-                                <input id="codigo" class="form-control" type="text" name="codigo" required placeholder="Número do estudante">
+                                <input id="codigo" class="form-control" type="text" name="codigo" required placeholder="Número de estudiante">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="dni">Clase</label>
-                                <input id="dni" class="form-control" type="text" name="dni" required placeholder="Turma do estudante">
+                                <input id="dni" class="form-control" type="text" name="dni" required placeholder="clase de estudiante">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input id="nombre" class="form-control" type="text" name="nombre" required placeholder="Nome completo">
+                                <input id="nombre" class="form-control" type="text" name="nombre" required placeholder="Nombre completo">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -72,13 +72,13 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="telefono">Telefono</label>
-                                <input id="telefono" class="form-control" type="text" name="telefono" required placeholder="Telefone">
+                                <input id="telefono" class="form-control" type="text" name="telefono" required placeholder="Telefono">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="direccion">Dirección</label>
-                                <input id="direccion" class="form-control" type="text" name="direccion" required placeholder="Endereço">
+                                <input id="direccion" class="form-control" type="text" name="direccion" required placeholder="Dirección">
                             </div>
                         </div>
                         <div class="col-md-12">

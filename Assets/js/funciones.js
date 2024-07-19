@@ -6,17 +6,17 @@ document.addEventListener("DOMContentLoaded", function(){
     });
     const language = {
         "decimal": "",
-        "emptyTable": "Não existem informações",
+        "emptyTable": "no hay informacion",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
         "infoEmpty": "Mostrando 0 to 0 of 0 registros",
         "infoFiltered": "(Filtrado de _MAX_  do total de registros)",
         "infoPostFix": "",
         "thousands": ",",
         "lengthMenu": "Mostrar _MENU_ Registros",
-        "loadingRecords": "Carregando...",
+        "loadingRecords": "Cargando...",
         "processing": "Procesando...",
-        "search": "Pesquisar:",
-        "zeroRecords": "Nenhum resultado encontrado",
+        "search": "Buscar:",
+        "zeroRecords": "Ningún resultado encontrado",
         "paginate": {
             "first": "Primero",
             "last": "Último",
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 //Botón para Excel
                 extend: 'excel',
                 footer: true,
-                title: 'Arquivo',
+                title: 'Archivo',
                 filename: 'Exportar_excel',
 
                 //Aquí es donde generas el botón personalizado
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
             {
                 extend: 'pdf',
                 footer: true,
-                title: 'Arquivo PDF',
+                title: 'Archivo PDF',
                 filename: 'relatório',
                 text: '<button class="btn btn-danger"><i class="fa fa-file-pdf-o"></i></button>'
             },
@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", function(){
             {
                 extend: 'print',
                 footer: true,
-                title: 'Relatórios',
-                filename: 'Exportar_impressão',
+                title: 'Informes',
+                filename: 'Exportar_imprimir',
                 text: '<button class="btn btn-info"><i class="fa fa-print"></i></button>'
             }
         ]
@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
     $('.libro').select2({
-        placeholder: 'Procurar livro',
+        placeholder: 'buscar libro',
             minimumInputLength: 2,
             ajax: {
                 url: base_url + 'Libros/buscarLibro',
@@ -309,7 +309,7 @@ document.addEventListener("DOMContentLoaded", function(){
             }
     });
     $('.autor').select2({
-        placeholder: 'Procurar Autor',
+        placeholder: 'Buscar autor',
         minimumInputLength: 2,
         ajax: {
             url: base_url + 'Autor/buscarAutor',
@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
     $('.editorial').select2({
-        placeholder: 'Procuar Editora',
+        placeholder: 'Buscar editor',
         minimumInputLength: 2,
         ajax: {
             url: base_url + 'Editorial/buscarEditorial',
@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
     $('.materia').select2({
-        placeholder: 'Procurar Matéria',
+        placeholder: 'Buscar artículo',
         minimumInputLength: 2,
         ajax: {
             url: base_url + 'Materia/buscarMateria',
@@ -395,8 +395,8 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function frmUsuario() {
-    document.getElementById("title").textContent = "Novo Usuário";
-    document.getElementById("btnAccion").textContent = "Cadastrar";
+    document.getElementById("title").textContent = "Nuevo Usuario";
+    document.getElementById("btnAccion").textContent = "Registrar";
     document.getElementById("claves").classList.remove("d-none");
     document.getElementById("frmUsuario").reset();
     document.getElementById("id").value = "";
@@ -409,7 +409,7 @@ function registrarUser(e) {
     const clave = document.getElementById("clave");
     const confirmar = document.getElementById("confirmar");
     if (usuario.value == "" || nombre.value == "") {
-        alertas('Todos os campos são obrigatórios', 'warning');
+        alertas('Todos los campos son obligatorios', 'warning');
     } else {
         const url = base_url + "Usuarios/registrar";
         const frm = document.getElementById("frmUsuario");
@@ -428,7 +428,7 @@ function registrarUser(e) {
     }
 }
 function btnEditarUser(id) {
-    document.getElementById("title").textContent = "Atualizar usuário";
+    document.getElementById("title").textContent = "Atualizar Usuario";
     document.getElementById("btnAccion").textContent = "Alterar";
     const url = base_url + "Usuarios/editar/"+id;
     const http = new XMLHttpRequest();
@@ -447,14 +447,14 @@ function btnEditarUser(id) {
 }
 function btnEliminarUser(id) {
     Swal.fire({
-        title: 'Deseja realmente eliminar este usuário?',
-        text: "O usuário não será excluído permanentemente, apenas mudará o status para inativo!",
+        title: '¿Realmente deseas eliminar a este usuario?',
+        text: "El usuario no será eliminado permanentemente, ¡simplemente cambie el estado a inactivo!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Usuarios/eliminar/" + id;
@@ -474,13 +474,13 @@ function btnEliminarUser(id) {
 }
 function btnReingresarUser(id) {
     Swal.fire({
-        title: 'Deseja realmente reingresar este usuário?',
+        title: '¿Realmente quieres reingresar a este usuario?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Usuarios/reingresar/" + id;
@@ -500,8 +500,8 @@ function btnReingresarUser(id) {
 }
 //Fin Usuarios
 function frmEstudiante() {
-    document.getElementById("title").textContent = "Novo estudante";
-    document.getElementById("btnAccion").textContent = "Cadastrar";
+    document.getElementById("title").textContent = "Estudiante nuevo";
+    document.getElementById("btnAccion").textContent = "Registrar";
     document.getElementById("frmEstudiante").reset();
     document.getElementById("id").value = "";
     $("#nuevoEstudiante").modal("show");
@@ -517,7 +517,7 @@ function registrarEstudiante(e) {
     const direccion = document.getElementById("direccion");
     if (codigo.value == "" || dni.value == "" || nombre.value == ""
     || telefono.value == "" || direccion.value == "" || carrera.value == "") {
-        alertas('Todos os campos são obrigatórios', 'warning');
+        alertas('Todos los campos son obligatorios', 'warning');
     } else {
         const url = base_url + "Estudiantes/registrar";
         const frm = document.getElementById("frmEstudiante");
@@ -537,7 +537,7 @@ function registrarEstudiante(e) {
 }
 
 function btnEditarEst(id) {
-    document.getElementById("title").textContent = "Atualizar estudante";
+    document.getElementById("title").textContent = "Atualizar Estudiante";
     document.getElementById("btnAccion").textContent = "Alterar";
     const url = base_url + "Estudiantes/editar/" + id;
     const http = new XMLHttpRequest();
@@ -560,14 +560,14 @@ function btnEditarEst(id) {
 
 function btnEliminarEst(id) {
     Swal.fire({
-        title: 'Deseja realmente eliminar este estudante?',
-        text: "O estudante não será excluído permanentemente, apenas mudará o status para inativo!",
+        title: '¿Realmente deseas eliminar a este estudiante?',
+        text: "El estudiante no será eliminado permanentemente, ¡simplemente cambie el estado a inactivo!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Estudiantes/eliminar/" + id;
@@ -588,13 +588,13 @@ function btnEliminarEst(id) {
 
 function btnReingresarEst(id) {
     Swal.fire({
-        title: 'Deseja reingressar o estudante?',
+        title: 'Deseas Ingresar Estudiante',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Estudiantes/reingresar/" + id;
@@ -614,8 +614,8 @@ function btnReingresarEst(id) {
 }
 //Fin Estudiante
 function frmMateria() {
-    document.getElementById("title").textContent = "Nova matéria";
-    document.getElementById("btnAccion").textContent = "Cadastrar";
+    document.getElementById("title").textContent = "Articulo nuevo";
+    document.getElementById("btnAccion").textContent = "Registrar";
     document.getElementById("frmMateria").reset();
     document.getElementById("id").value = "";
     $("#nuevoMateria").modal("show");
@@ -645,7 +645,7 @@ function registrarMateria(e) {
 }
 
 function btnEditarMat(id) {
-    document.getElementById("title").textContent = "Caixa de atualização";
+    document.getElementById("title").textContent = "Cuadro de actualización";
     document.getElementById("btnAccion").textContent = "Alterar";
     const url = base_url + "Materia/editar/" + id;
     const http = new XMLHttpRequest();
@@ -663,14 +663,14 @@ function btnEditarMat(id) {
 
 function btnEliminarMat(id) {
     Swal.fire({
-        title: 'Deseja realmente elimiar esta matéria?',
-        text: "A matéria não será excluída permanentemente, apenas mudará o estado para inativo!",
+        title: '¿Realmente quieres eliminar este asunto?',
+        text: "El asunto no se eliminará permanentemente, ¡solo cambiará el estado a inactivo!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Materia/eliminar/" + id;
@@ -691,13 +691,13 @@ function btnEliminarMat(id) {
 
 function btnReingresarMat(id) {
     Swal.fire({
-        title: 'Deseja realmente reingresar com esta matéria?',
+        title: '¿De verdad quieres unirte a este tema?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Materia/reingresar/" + id;
@@ -717,8 +717,8 @@ function btnReingresarMat(id) {
 }
 //Fin Materia
 function frmAutor() {
-    document.getElementById("title").textContent= "Novo autor";
-    document.getElementById("btnAccion").textContent= "Cadastrar";
+    document.getElementById("title").textContent= "Nuevo autor";
+    document.getElementById("btnAccion").textContent= "Registrar";
     document.getElementById("frmAutor").reset();
     document.getElementById("id").value = "";
     deleteImg();
@@ -729,7 +729,7 @@ function registrarAutor(e) {
     e.preventDefault();
     const autor = document.getElementById("autor");
     if (autor.value == "") {
-        alertas('O nome é obrigatório!', 'warning');
+        alertas('¡El nombre es obligatorio!', 'warning');
     } else {
         const url = base_url + "Autor/registrar";
         const frm = document.getElementById("frmAutor");
@@ -773,14 +773,14 @@ function btnEditarAutor(id) {
 
 function btnEliminarAutor(id) {
     Swal.fire({
-        title: 'Deseja realmente eliminar este autor?',
-        text: "O autor não será excluído permanentemente, apenas mudará o estado para inativo!",
+        title: '¿Realmente deseas eliminar a este autor?',
+        text: "El autor no será eliminado permanentemente, ¡simplemente cambiará el estado a inactivo!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Autor/eliminar/" + id;
@@ -801,13 +801,13 @@ function btnEliminarAutor(id) {
 
 function btnReingresarAutor(id) {
     Swal.fire({
-        title: 'Deseja realmente reingressar este autor?',
+        title: '¿De verdad quieres unirte a este autor?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Autor/reingresar/" + id;
@@ -827,8 +827,8 @@ function btnReingresarAutor(id) {
 }
 //Fin Autor
 function frmEditorial() {
-    document.getElementById("title").textContent = "Nova editora";
-    document.getElementById("btnAccion").textContent = "Cadastrar";
+    document.getElementById("title").textContent = "Nuevo editor";
+    document.getElementById("btnAccion").textContent = "Registrar";
     document.getElementById("frmEditorial").reset();
     document.getElementById("id").value = "";
     $("#nuevoEditorial").modal("show");
@@ -875,14 +875,14 @@ function btnEditarEdi(id) {
 
 function btnEliminarEdi(id) {
     Swal.fire({
-        title: 'Deseja realmente eliminar essa editora?',
-        text: "A editora não será excluído permanentemente, apenas mudará o estado para inativo!",
+        title: '¿Realmente desea eliminar este editor?',
+        text: "El editor no se eliminará permanentemente, ¡simplemente cambiará el estado a inactivo!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Editorial/eliminar/" + id;
@@ -903,13 +903,13 @@ function btnEliminarEdi(id) {
 
 function btnReingresarEdi(id) {
     Swal.fire({
-        title: 'Deseja realmente reingresar esta editora?',
+        title: '¿Realmente quieres volver a unirte a este editor?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Editorial/reingresar/" + id;
@@ -929,8 +929,8 @@ function btnReingresarEdi(id) {
 }
 //Fin editorial
 function frmLibros() {
-    document.getElementById("title").textContent = "Novo livro";
-    document.getElementById("btnAccion").textContent = "Cadastrar";
+    document.getElementById("title").textContent = "Nuevo libro";
+    document.getElementById("btnAccion").textContent = "Registrar";
     document.getElementById("frmLibro").reset();
     document.getElementById("id").value = "";
     $("#nuevoLibro").modal("show");
@@ -948,7 +948,7 @@ function registrarLibro(e) {
 
     if (titulo.value == '' || autor.value == '' || editorial.value == ''
     || materia.value == '' || cantidad.value == '' || num_pagina.value == '') {
-        alertas('Todo los campos son requeridos', 'warning');
+        alertas('Todos los campos son obligatorios', 'warning');
     } else {
         const url = base_url + "Libros/registrar";
         const frm = document.getElementById("frmLibro");
@@ -968,7 +968,7 @@ function registrarLibro(e) {
 }
 
 function btnEditarLibro(id) {
-    document.getElementById("title").textContent = "Atualizar Livro";
+    document.getElementById("title").textContent = "Atualizar Libro";
     document.getElementById("btnAccion").textContent = "Alterar";
     const url = base_url + "Libros/editar/" + id;
     const http = new XMLHttpRequest();
@@ -999,14 +999,14 @@ function btnEditarLibro(id) {
 
 function btnEliminarLibro(id) {
     Swal.fire({
-        title: 'Deseja realmente eliminar este livro?',
-        text: "O Livro não será excluído permanentemente, apenas mudará o estado para inativo!",
+        title: '¿Realmente deseas eliminar este libro?',
+        text: "El Libro no se eliminará permanentemente, ¡simplemente cambie el estado a inactivo!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Libros/eliminar/" + id;
@@ -1027,13 +1027,13 @@ function btnEliminarLibro(id) {
 
 function btnReingresarLibro(id) {
     Swal.fire({
-        title: 'Deseja realmente reingresar com este livro?',
+        title: '¿Realmente quieres comprar este libro?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: '¡Si!',
+        cancelButtonText: '¡No!'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Libros/reingresar/" + id;
@@ -1056,7 +1056,7 @@ function preview(e) {
     var filePath = input.value;
     var extension = /(\.png|\.jpeg|\.jpg)$/i;
     if (!extension.exec(filePath)) {
-        alertas('Selecione um aquivo válido!', 'warning');
+        alertas('¡Seleccione un archivo válido!', 'warning');
         deleteImg();
         return false;
     }else{
@@ -1084,7 +1084,7 @@ function frmConfig(e) {
     const direccion = document.getElementById("direccion");
     const correo = document.getElementById("correo");
     if (nombre.value == "" || telefono.value == "" || direccion.value == "" || correo.value == "") {
-        alertas('Todos os campos são obrigatórios!', 'warning');
+        alertas('Todos los campos son obligatorios!', 'warning');
     } else {
         const url = base_url + "Configuracion/actualizar";
         const frm = document.getElementById("frmConfig");
@@ -1105,7 +1105,7 @@ function frmPrestar() {
 }
 function btnEntregar(id) {
     Swal.fire({
-        title: 'Receber livro?',
+        title: '¿Recibir libro?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -1137,7 +1137,7 @@ function registroPrestamos(e){
     const fecha_prestamo = document.getElementById("fecha_prestamo").value;
     const fecha_devolucion = document.getElementById("fecha_devolucion").value;
     if (libro == '' || estudiante == '' || cantidad == '' || fecha_prestamo == '' || fecha_devolucion == '') {
-        alertas('Todos os campos são obrigatórios!', 'warning');
+        alertas('Todos los campos son obligatorios!', 'warning');
     } else {
         const frm = document.getElementById("frmPrestar");
         const url = base_url + "Prestamos/registrar";
@@ -1184,9 +1184,9 @@ function registrarPermisos(e) {
             const res = JSON.parse(this.responseText);
             $("#permisos").modal("hide");
             if(res == 'ok'){
-				alertas('Permissões atribuídas!', 'success');
+				alertas('¡Permisos asignados!', 'success');
 			}else{
-				alertas('Erro ao atribuir permissões!', 'error');
+				alertas('¡Error al asignar permisos!', 'error');
 			}
         }
     }

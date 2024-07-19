@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label for="autor">Nombre</label>
                                 <input type="hidden" id="id" name="id">
-                                <input id="autor" class="form-control" type="text" name="autor" required placeholder="Nome do Autor" required>
+                                <input id="autor" class="form-control" type="text" name="autor" required placeholder="Nombre del autor" required>
                             </div>
                         </div>
                         <div class="col-md-12">

@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fecha_prestamo">fecha de préstamo</label>
+                                <label for="fecha_prestamo">Fecha de préstamo</label>
                                 <input id="fecha_prestamo" class="form-control" type="date" name="fecha_prestamo" value="<?php echo date("Y-m-d"); ?>" required>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="form-group">
                         <label for="observacion">Observación</label>
-                        <textarea id="observacion" class="form-control" placeholder="Observação" name="observacion" rows="3"></textarea>
+                        <textarea id="observacion" class="form-control" placeholder="Observación" name="observacion" rows="3"></textarea>
                     </div>
                     <button class="btn btn-primary" type="submit" id="btnAccion">Prestar</button>
                     <button class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</button>

@@ -5,37 +5,35 @@ class Query extends Conexion{
         $this->pdo = new Conexion();
         $this->con = $this->pdo->conect();
     }
-
     public function select(string $sql)
     {
         $this->sql = $sql;
-        $result = $this->con->prepare($this->$sql);
-        $result->execute();
-        $data = $result->fetch(PDO::FETCH_ASSOC);
+        $resul = $this->con->prepare($this->sql);
+        $resul->execute();
+        $data = $resul->fetch(PDO::FETCH_ASSOC);
         return $data;
     }
-
-    public function selectAll(string $sql){
+    public function selectAll(string $sql)
+    {
         $this->sql = $sql;
         $resul = $this->con->prepare($this->sql);
         $resul->execute();
         $data = $resul->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
-    
-    public function save(string $sql, array $datos){
+    public function save(string $sql, array $datos)
+    {
         $this->sql = $sql;
         $this->datos = $datos;
         $insert = $this->con->prepare($this->sql);
         $data = $insert->execute($this->datos);
         if ($data) {
             $res = 1;
-        }else {
+        }else{
             $res = 0;
         }
         return $res;
     }
-    
     public function insert(string $sql, array $datos)
     {
         $this->sql = $sql;
