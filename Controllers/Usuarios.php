@@ -52,24 +52,40 @@ class Usuarios extends Controller{
     {
         $usuario = strClean($_POST['usuario']);
         $clave = strClean($_POST['clave']);
-        if (empty($usuario) || empty($clave)) {
-            $msg = array('msg' => 'Todos los campos son obligatorios!', 'icono' => 'warning');
-        }else{
-            $hash = hash("SHA256", $clave);
-            $data = $this->model->getUsuario($usuario, $hash);
-            if ($data) {
-                $_SESSION['id_usuario'] = $data['id'];
-                $_SESSION['usuario'] = $data['usuario'];
-                $_SESSION['nombre'] = $data['nombre'];
-                $_SESSION['activo'] = true;
-                $msg = array('msg' => 'Procesando...', 'icono' => 'success');
-            }else{
-                $msg = array('msg' => '¡Nombre de usuario o contraseña incorrecta!', 'icono' => 'warning');
+        $captchaSecretKey = "6Lcb3xgqAAAAAKrMlDRy8RZjP9Q_ED74l63hlxyK";
+        $captchaResponse = $_POST['g-recaptcha-response'];
+    
+        if (empty($captchaResponse)) {
+            $msg = array('msg' => 'Error: Por favor, verifica que eres humano.', 'icono' => 'warning');
+        } else {
+            $captchaVerifyUrl = "https://www.google.com/recaptcha/api/siteverify?secret=$captchaSecretKey&response=$captchaResponse";
+            $captchaVerifyResponse = json_decode(file_get_contents($captchaVerifyUrl), true);
+    
+            if ($captchaVerifyResponse['success']) {
+                if (empty($usuario) || empty($clave)) {
+                    $msg = array('msg' => 'Todos los campos son obligatorios!', 'icono' => 'warning');
+                } else {
+                    $hash = hash("SHA256", $clave);
+                    $data = $this->model->getUsuario($usuario, $hash);
+                    if ($data) {
+                        $_SESSION['id_usuario'] = $data['id'];
+                        $_SESSION['usuario'] = $data['usuario'];
+                        $_SESSION['nombre'] = $data['nombre'];
+                        $_SESSION['activo'] = true;
+                        $msg = array('msg' => 'Procesando...', 'icono' => 'success');
+                    } else {
+                        $msg = array('msg' => '¡Nombre de usuario o contraseña incorrecta!', 'icono' => 'warning');
+                    }
+                }
+            } else {
+                $msg = array('msg' => 'Error: Verificación de reCAPTCHA fallida. Inténtalo de nuevo.', 'icono' => 'warning');
             }
         }
+    
         echo json_encode($msg, JSON_UNESCAPED_UNICODE);
         die();
     }
+    
     public function registrar()
     {
         $usuario = strClean($_POST['usuario']);
@@ -116,6 +132,7 @@ class Usuarios extends Controller{
     }
     public function eliminar(int $id)
     {
+        
         $data = $this->model->accionUser(0, $id);
         if ($data == 1) {
             $msg = array('msg' => '¡Usuario caído!', 'icono' => 'success');

@@ -17,7 +17,7 @@
                                 <th>Foto</th>
                                 <th>Nombre</th>
                                 <th>Situación</th>
-                                <th></th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>

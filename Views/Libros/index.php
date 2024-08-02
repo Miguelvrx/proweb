@@ -22,7 +22,7 @@
                                 <th>Foto</th>
                                 <th>Descripción</th>
                                 <th>Situación</th>
-                                <th></th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label for="titulo">Titulo</label>
                             <input type="hidden" id="id" name="id">
-                            <input id="titulo" class="form-control" type="text" name="titulo" placeholder="Título do livro" required>
+                            <input id="titulo" class="form-control" type="text" name="titulo" placeholder="Titulo del libro" required>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -80,13 +80,13 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="cantidad">Cantidad</label>
-                            <input id="cantidad" class="form-control" type="text" name="cantidad" placeholder="Quantidade" required>
+                            <input id="cantidad" class="form-control" type="text" name="cantidad" placeholder="Cantidad" required>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="num_pagina">Número de Páginas</label>
-                            <input id="num_pagina" class="form-control" type="number" name="num_pagina" placeholder="Quantidade de páginas" required>
+                            <input id="num_pagina" class="form-control" type="number" name="num_pagina" placeholder="Cantidad de páginas" required>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -99,7 +99,7 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="descripcion">Descripción</label>
-                                <textarea id="descripcion" class="form-control" name="descripcion" rows="2" placeholder="Descrição"></textarea>
+                                <textarea id="descripcion" class="form-control" name="descripcion" rows="2" placeholder="Descripción"></textarea>
                             </div>
                         </div>
                     </div>

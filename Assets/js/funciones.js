@@ -336,11 +336,13 @@ document.addEventListener("DOMContentLoaded", function(){
             dataType: 'json',
             delay: 250,
             data: function (params) {
+                console.log('Params:', params);
                 return {
                     q: params.term
                 };
             },
             processResults: function (data) {
+                console.log('Data received:', data);
                 return {
                     results: data
                 };
@@ -348,6 +350,7 @@ document.addEventListener("DOMContentLoaded", function(){
             cache: true
         }
     });
+    
     $('.materia').select2({
         placeholder: 'Buscar artículo',
         minimumInputLength: 2,

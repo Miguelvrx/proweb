@@ -15,8 +15,8 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>
-                                <th>Situaciòn</th>
-                                <th></th>
+                                <th>Situación</th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label for="editorial">Nombre</label>
                                 <input type="hidden" id="id" name="id">
-                                <input id="editorial" class="form-control" type="text" name="editorial" required placeholder="Nome da Editora">
+                                <input id="editorial" class="form-control" type="text" name="editorial" required placeholder="Nombre del Editorial">
                             </div>
                         </div>
 

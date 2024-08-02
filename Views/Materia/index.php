@@ -16,7 +16,7 @@
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Situacion</th>
-                                <th></th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label for="materia">Nombre</label>
                                 <input type="hidden" id="id" name="id">
-                                <input id="materia" class="form-control" type="text" name="materia" required placeholder="Nombre de Materia">
+                                <input id="materia" class="form-control" type="text" name="materia" required placeholder="Nombre de la Materia">
                             </div>
                         </div>
 

@@ -10,7 +10,7 @@
         <div class="tile">
             <div class="tile-body">
                 <div class="table-responsive">
-                    <table class="table table-light mt-4" id="tblEst">
+                    <table class="table table-light mt-4 table-bordered table-hover dataTable no-footer" id="tblEst">
                         <thead class="thead-dark">
                             <tr>
                                 <th>Id</th>
@@ -21,7 +21,7 @@
                                 <th>Dirección</th>
                                 <th>Telefono</th>
                                 <th>Situación</th>
-                                <th></th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>

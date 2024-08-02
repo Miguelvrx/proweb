@@ -14,12 +14,12 @@
                         <th>Id</th>
                         <th>Libro</th>
                         <th>Estudiante</th>
-                        <th>fecha de préstamo</th>
+                        <th>Fecha de préstamo</th>
                         <th>Fecha de regreso</th>
                         <th>En cuanto a.</th>
                         <th>observacion</th>
                         <th>Situación</th>
-                        <th></th>
+                        <th>Reportes</th>
                     </tr>
                 </thead>
                 <tbody>

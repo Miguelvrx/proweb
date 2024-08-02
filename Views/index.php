@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url; ?>Assets/css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url; ?>Assets/css/font-awesome.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Bilbioteca pro</title>
 </head>
 
@@ -41,6 +42,9 @@
                     <label>
                         <input type="checkbox" id="mostrarContrasena"> Mostrar contraseña
                     </label>
+                </div>
+                <div class="input-container">
+                    <div style="position: relative; margin-left: -1px; top: -15px;" class="g-recaptcha" data-sitekey="6Lcb3xgqAAAAANqUD_N3Wz0FuxbLo7qHm8eNeYsM"></div>
                 </div>
                 <!-- Alerta de error (oculta por defecto) -->
                 <div class="alert alert-danger d-none" role="alert" id="alerta"></div>
