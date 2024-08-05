@@ -1,0 +1,91 @@
+.float-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px; /* Ajusta el tamaño según tus necesidades */
+    height: 56px; /* Ajusta el tamaño según tus necesidades */
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.float-btn:hover {
+    background-color: #e07c00; /* Cambia este color según tus necesidades */
+}
+
+.float-btn svg {
+    fill: currentColor;
+}
+
+
+.form-container {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    top: 180px;
+}
+
+.form-header {
+    background-color: #ff8c00;
+    color: white;
+    padding: 15px;
+    font-size: 14px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.form-container input,
+.form-container textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.form-container input::placeholder,
+.form-container textarea::placeholder {
+    color: #ff0000;
+}
+
+.form-container button[type="submit"] {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 900%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -1,7 +1,8 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <?php include "Views/Templates/header.php"; ?>
 <div class="app-title">
     <div>
-        <h1><i class="fa fa-dashboard"></i>Libros</h1>
+        <h1><i class="bi bi-journal"></i> Libros</h1>
     </div>
 </div>
 <button class="btn btn-primary mb-2" onclick="frmLibros()"><i class="fa fa-plus"></i></button>

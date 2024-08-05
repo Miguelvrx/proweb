@@ -1,7 +1,8 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <?php include "Views/Templates/header.php"; ?>
 <div class="app-title">
     <div>
-        <h1><i class="fa fa-dashboard"></i>Usuario</h1>
+        <h1><i class="bi bi-people-fill"></i> Usuario</h1>
     </div>
 </div>
 <button class="btn btn-primary mb-2" type="button" onclick="frmUsuario();"><i class="fa fa-plus"></i></button>
@@ -42,23 +43,23 @@
                     <div class="form-group">
                         <label for="usuario">Usuario</label>
                         <input type="hidden" id="id" name="id">
-                        <input id="usuario" class="form-control" type="text" name="usuario" placeholder="Usuário">
+                        <input id="usuario" class="form-control" type="text" name="usuario" placeholder="Usuario">
                     </div>
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nome do usuário">
+                        <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre del Usuario">
                     </div>
                     <div class="row" id="claves">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="clave">Contraseña</label>
-                                <input id="clave" class="form-control" type="password" name="clave" placeholder="Senha">
+                                <input id="clave" class="form-control" type="password" name="clave" placeholder="Contraseña">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="confirmar">Confirmar Contraseña</label>
-                                <input id="confirmar" class="form-control" type="password" name="confirmar" placeholder="Confirmar senha">
+                                <input id="confirmar" class="form-control" type="password" name="confirmar" placeholder="Confirmar Contraseña">
                             </div>
                         </div>
                     </div>

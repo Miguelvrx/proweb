@@ -732,7 +732,7 @@ function registrarAutor(e) {
     e.preventDefault();
     const autor = document.getElementById("autor");
     if (autor.value == "") {
-        alertas('¡El nombre es obligatorio!', 'warning');
+        alertas('El nombre es obligatorio', 'warning');
     } else {
         const url = base_url + "Autor/registrar";
         const frm = document.getElementById("frmAutor");

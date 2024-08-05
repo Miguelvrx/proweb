@@ -3,80 +3,60 @@ class Autor extends Controller
 {
     public function __construct()
     {
-        // Inicia la sesión
         session_start();
-        // Verifica si el usuario está autenticado, si no, redirige a la página base
         if (empty($_SESSION['activo'])) {
             header("location: " . base_url);
         }
-        // Llama al constructor de la clase padre
         parent::__construct();
-        // Obtiene el ID del usuario de la sesión
         $id_user = $_SESSION['id_usuario'];
-        // Verifica los permisos del usuario para acceder a "Autor"
         $perm = $this->model->verificarPermisos($id_user, "Autor");
-        // Si no tiene permisos y no es el usuario admin (ID 1), muestra vista de permisos insuficientes
         if (!$perm && $id_user != 1) {
             $this->views->getView($this, "permisos");
             exit;
         }
     }
-
-    // Método para mostrar la vista principal de Autor
     public function index()
     {
         $this->views->getView($this, "index");
     }
-
-    // Método para listar todos los autores
     public function listar()
     {
-        // Obtiene los datos de los autores
         $data = $this->model->getAutor();
-        // Procesa cada autor para formatear la presentación de los datos
         for ($i = 0; $i < count($data); $i++) {
-            // Formatea la imagen
             $data[$i]['imagen'] = '<img class="img-thumbnail" src="' . base_url . "Assets/img/autor/" . $data[$i]['imagen'] . '" width="80">';
-            // Formatea el estado y las acciones disponibles según si está activo o inactivo
             if ($data[$i]['estado'] == 1) {
-                $data[$i]['estado'] = '<span class="badge badge-success">Ativo</span>';
+                $data[$i]['estado'] = '<span class="badge badge-success">activo</span>';
                 $data[$i]['acciones'] = '<div>
                 <button class="btn btn-primary" type="button" onclick="btnEditarAutor(' . $data[$i]['id'] . ');"><i class="fa fa-pencil-square-o"></i></button>
                 <button class="btn btn-danger" type="button" onclick="btnEliminarAutor(' . $data[$i]['id'] . ');"><i class="fa fa-trash-o"></i></button>
                 <div/>';
             } else {
-                $data[$i]['estado'] = '<span class="badge badge-danger">Inativo</span>';
+                $data[$i]['estado'] = '<span class="badge badge-danger">Inactivo</span>';
                 $data[$i]['acciones'] = '<div>
                 <button class="btn btn-success" type="button" onclick="btnReingresarAutor(' . $data[$i]['id'] . ');"><i class="fa fa-reply-all"></i></button>
                 <div/>';
             }
         }
-        // Devuelve los datos en formato JSON
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();
     }
-
-    // Método para registrar o actualizar un autor
     public function registrar()
     {
-        // Obtiene y limpia los datos del formulario
         $autor = strClean($_POST['autor']);
         $img = $_FILES['imagen'];
         $name = $img['name'];
         $id = strClean($_POST['id']);
         $fecha = date("YmdHis");
         $tmpName = $img['tmp_name'];
-
-        // Valida que el nombre del autor no esté vacío
         if (empty($autor)) {
-            $msg = array('msg' => 'É exigido o nome!', 'icono' => 'warning');
+            $msg = array('msg' => 'El nombre es obligatorio', 'icono' => 'warning');
         } else {
-            // Procesa la imagen si se ha subido una nueva
             if (!empty($name)) {
                 $extension = pathinfo($name, PATHINFO_EXTENSION);
                 $formatos_permitidos =  array('png', 'jpeg', 'jpg');
+                $extension = pathinfo($name, PATHINFO_EXTENSION);
                 if (!in_array($extension, $formatos_permitidos)) {
-                    $msg = array('msg' => 'Tipo de arquivo não permitido', 'icono' => 'warning');
+                    $msg = array('msg' => 'Tipo de archivo no permitido', 'icono' => 'warning');
                 } else {
                     $imgNombre = $fecha . ".jpg";
                     $destino = "Assets/img/autor/" . $imgNombre;
@@ -86,8 +66,6 @@ class Autor extends Controller
             } else {
                 $imgNombre = "logo.png";
             }
-
-            // Si no hay ID, es un nuevo registro
             if ($id == "") {
                 $data = $this->model->insertarAutor($autor, $imgNombre);
                 if ($data == "ok") {
@@ -96,12 +74,12 @@ class Autor extends Controller
                         move_uploaded_file($tmpName, $destino);
                     }
                 } else if ($data == "existe") {
-                    $msg = array('msg' => 'Este autor já existe!', 'icono' => 'warning');
+                    $msg = array('msg' => 'El autor ya existe', 'icono' => 'warning');
                 } else {
-                    $msg = array('msg' => 'Erro ao cadastrar!', 'icono' => 'error');
+                    $msg = array('msg' => 'Error al registrarte', 'icono' => 'error');
                 }
             } else {
-                // Si hay ID, es una actualización
+
                 $imgDelete = $this->model->editAutor($id);
                 if ($imgDelete['imagen'] != 'logo.png') {
                     if (file_exists("Assets/img/autor/" . $imgDelete['imagen'])) {
@@ -113,51 +91,43 @@ class Autor extends Controller
                     if (!empty($name)) {
                         move_uploaded_file($tmpName, $destino);
                     }
-                    $msg = array('msg' => 'Autor Alterado com sucesso!', 'icono' => 'success');
+                    $msg = array('msg' => 'Autor cambiado con éxito', 'icono' => 'success');
                 } else {
-                    $msg = array('msg' => 'Erro ao alterar!', 'icono' => 'error');
+                    $msg = array('msg' => 'Error al registrarte', 'icono' => 'error');
                 }
             }
         }
         echo json_encode($msg, JSON_UNESCAPED_UNICODE);
         die();
     }
-
-    // Método para obtener los datos de un autor para edición
     public function editar($id)
     {
         $data = $this->model->editAutor($id);
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();
     }
-
-    // Método para eliminar (desactivar) un autor
     public function eliminar($id)
     {
         $data = $this->model->estadoAutor(0, $id);
         if ($data == 1) {
-            $msg = array('msg' => 'Autor desativado com sucesso!', 'icono' => 'success');
+            $msg = array('msg' => 'Autor desactivado con éxito', 'icono' => 'success');
         } else {
-            $msg = array('msg' => 'Erro ao desativar!', 'icono' => 'error');
+            $msg = array('msg' => 'Error al desactivar', 'icono' => 'error');
         }
         echo json_encode($msg, JSON_UNESCAPED_UNICODE);
         die();
     }
-
-    // Método para reactivar un autor
     public function reingresar($id)
     {
         $data = $this->model->estadoAutor(1, $id);
         if ($data == 1) {
-            $msg = array('msg' => 'Autor reingressado com sucesso!', 'icono' => 'success');
+            $msg = array('msg' => 'El autor ingresa exitosamente', 'icono' => 'success');
         } else {
-            $msg = array('msg' => 'Erro ao reingressar', 'icono' => 'error');
+            $msg = array('msg' => 'Error al volver a unirme', 'icono' => 'error');
         }
         echo json_encode($msg, JSON_UNESCAPED_UNICODE);
         die();
     }
-
-    // Método para buscar autores
     public function buscarAutor()
     {
         if (isset($_GET['q'])) {
