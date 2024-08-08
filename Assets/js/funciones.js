@@ -1113,8 +1113,8 @@ function btnEntregar(id) {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim!',
-        cancelButtonText: 'Não'
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
     }).then((result) => {
         if (result.isConfirmed) {
             const url = base_url + "Prestamos/entregar/" + id;

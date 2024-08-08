@@ -103,16 +103,16 @@ class Configuracion extends Controller
         $pdf = new FPDF('P', 'mm', 'letter');
         $pdf->AddPage();
         $pdf->SetMargins(10, 10, 10);
-        $pdf->SetTitle("Empréstimos");
+        $pdf->SetTitle("Préstamos");
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(195, 5, mb_convert_encoding($datos['nombre'], 'ISO-8859-1', 'UTF-8'), 0, 1, 'C');
 
         $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(20, 5, mb_convert_encoding("Telefone: ", 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
+        $pdf->Cell(20, 5, mb_convert_encoding("Telefono: ", 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
         $pdf->SetFont('Arial', '', 10);
         $pdf->Cell(20, 5, $datos['telefono'], 0, 1, 'L');
         $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(20, 5, mb_convert_encoding("Endereço: ", 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
+        $pdf->Cell(20, 5, mb_convert_encoding("Dirección ", 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
         $pdf->SetFont('Arial', '', 10);
         $pdf->Cell(20, 5, mb_convert_encoding($datos['direccion'], 'ISO-8859-1', 'UTF-8'), 0, 1, 'L');
         $pdf->SetFont('Arial', 'B', 10);
@@ -123,12 +123,12 @@ class Configuracion extends Controller
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->SetFillColor(0, 0, 0);
         $pdf->SetTextColor(255, 255, 255);
-        $pdf->Cell(196, 5, mb_convert_encoding("Detalhes do empréstimo", 'ISO-8859-1', 'UTF-8'), 1, 1, 'C', 1);
+        $pdf->Cell(196, 5, mb_convert_encoding("Detalles del préstamo", 'ISO-8859-1', 'UTF-8'), 1, 1, 'C', 1);
         $pdf->SetTextColor(0, 0, 0);
         $pdf->Cell(14, 5, mb_convert_encoding('N°', 'ISO-8859-1', 'UTF-8'), 1, 0, 'L');
-        $pdf->Cell(50, 5, mb_convert_encoding('Estudantes', 'ISO-8859-1', 'UTF-8'), 1, 0, 'L');
+        $pdf->Cell(50, 5, mb_convert_encoding('Estudiantes', 'ISO-8859-1', 'UTF-8'), 1, 0, 'L');
         $pdf->Cell(87, 5, 'Livros', 1, 0, 'L');
-        $pdf->Cell(30, 5, mb_convert_encoding('Dt empréstimo', 'ISO-8859-1', 'UTF-8'), 1, 0, 'L');
+        $pdf->Cell(30, 5, mb_convert_encoding('Préstamo', 'ISO-8859-1', 'UTF-8'), 1, 0, 'L');
         $pdf->Cell(15, 5, 'Quant.', 1, 1, 'L');
         $pdf->SetFont('Arial', '', 10);
         $contador = 1;
