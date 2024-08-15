@@ -6,7 +6,7 @@
                 <h4 class="text-white">No permitido</h4>
             </div>
             <div class="card-body">
-                <a href="<?php echo base_url; ?>Configuracion/admin" class="btn btn-danger btn-block">Voltar</a>
+                <a href="<?php echo base_url; ?>Configuracion/admin" class="btn btn-danger btn-block">Volver</a>
             </div>
         </div>
     </div>

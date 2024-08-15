@@ -52,7 +52,7 @@ class Usuarios extends Controller{
     {
         $usuario = strClean($_POST['usuario']);
         $clave = strClean($_POST['clave']);
-        $captchaSecretKey = "";
+        $captchaSecretKey = "6Lcb3xgqAAAAAKrMlDRy8RZjP9Q_ED74l63hlxyK";
         $captchaResponse = $_POST['g-recaptcha-response'];
     
         if (empty($captchaResponse)) {

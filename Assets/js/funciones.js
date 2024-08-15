@@ -1,4 +1,4 @@
-let tblUsuarios, tblEst, tblMateria, tblAutor, tblEditorial, tblLibros, tblPrestar;
+let tblUsuarios, tblEst, tblMateria, tblAutor, tblEditorial, tblLibros, tblPrestar, tblDisco;
 document.addEventListener("DOMContentLoaded", function(){
     document.querySelector("#modalPass").addEventListener("click", function () {
         document.querySelector('#frmCambiarPass').reset();
@@ -71,6 +71,28 @@ document.addEventListener("DOMContentLoaded", function(){
         order: [
             [0, "desc"]
         ],
+        language,
+        dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+        buttons
+    });
+    tblMateria = $('#tblDisco').DataTable({
+        ajax: {
+            url: base_url + "Disco/listar",
+            dataSrc: ''
+        },
+        columns: [
+                    { 'data': 'id' },
+                    { 'data': 'titulo' },
+                    { 'data': 'artista' },
+                    { 'data': 'genero' },
+                    { 'data': 'anio_lanzamiento' },
+                    { 'data': 'precio' },
+                    { 'data': 'cantidad' },
+                    { 'data': 'estado' },
+                    { 'data': 'acciones' }
+                ],
         language,
         dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>" +
             "<'row'<'col-sm-12'tr>>" +
@@ -267,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function(){
         "order": [
             [0, "desc"]
         ]
-    });
+    });   
     $('.estudiante').select2({
         placeholder: 'Buscar Estudiante',
         minimumInputLength: 2,
@@ -356,6 +378,26 @@ document.addEventListener("DOMContentLoaded", function(){
         minimumInputLength: 2,
         ajax: {
             url: base_url + 'Materia/buscarMateria',
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
+    $('.disco').select2({
+        placeholder: 'Buscar Disco',
+        minimumInputLength: 2,
+        ajax: {
+            url: base_url + 'Disco/buscarDisco',
             dataType: 'json',
             delay: 250,
             data: function (params) {
@@ -1280,4 +1322,116 @@ function verificarLibro(e) {
             }
         }
     }
+}
+
+function frmDisco() {
+    document.getElementById("title").textContent = "Disco nuevo";
+    document.getElementById("btnAccion").textContent = "Registrar";
+    document.getElementById("frmDisco").reset();
+    document.getElementById("id").value = "";
+    $("#nuevoDisco").modal("show");
+}
+
+function registrarDisco(e) {
+    e.preventDefault();
+    const titulo = document.getElementById("titulo");
+    const artista = document.getElementById("artista");
+    const genero = document.getElementById("genero");
+    const anio_lanzamiento = document.getElementById("anio_lanzamiento");
+    const precio = document.getElementById("precio");
+    const cantidad = document.getElementById("cantidad");
+    if (titulo.value == "" || artista.value == "" || genero.value == "" ||
+        anio_lanzamiento.value == "" || precio.value == "" || cantidad.value == "") {
+        alertas('Todos los campos son obligatorios', 'warning');
+    } else {
+        const url = base_url + "Disco/registrar";
+        const frm = document.getElementById("frmDisco");
+        const http = new XMLHttpRequest();
+        http.open("POST", url, true);
+        http.send(new FormData(frm));
+        http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                const res = JSON.parse(this.responseText);
+                $("#nuevoDisco").modal("hide");
+                frm.reset();
+                tblDisco.ajax.reload();
+                alertas(res.msg, res.icono);
+            }
+        }
+    }
+}
+
+function btnEditarDisco(id) {
+    document.getElementById("title").textContent = "Actualizar Disco";
+    document.getElementById("btnAccion").textContent = "Actualizar";
+    const url = base_url + "Disco/editar/" + id;
+    const http = new XMLHttpRequest();
+    http.open("GET", url, true);
+    http.send();
+    http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            const res = JSON.parse(this.responseText);
+            document.getElementById("id").value = res.id;
+            document.getElementById("titulo").value = res.titulo;
+            document.getElementById("artista").value = res.artista;
+            document.getElementById("genero").value = res.genero;
+            document.getElementById("anio_lanzamiento").value = res.anio_lanzamiento;
+            document.getElementById("precio").value = res.precio;
+            document.getElementById("cantidad").value = res.cantidad;
+            $("#nuevoDisco").modal("show");
+        }
+    }
+}
+
+function btnEliminarDisco(id) {
+    Swal.fire({
+        title: '¿Realmente deseas eliminar este disco?',
+        text: "El disco no será eliminado permanentemente, ¡simplemente cambie el estado a inactivo!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '¡Sí!',
+        cancelButtonText: '¡No!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const url = base_url + "Disco/eliminar/" + id;
+            const http = new XMLHttpRequest();
+            http.open("GET", url, true);
+            http.send();
+            http.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    const res = JSON.parse(this.responseText);
+                    tblDisco.ajax.reload();
+                    alertas(res.msg, res.icono);
+                }
+            }
+        }
+    })
+}
+
+function btnReingresarDisco(id) {
+    Swal.fire({
+        title: '¿Deseas reingresar este disco?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '¡Sí!',
+        cancelButtonText: '¡No!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const url = base_url + "Disco/reingresar/" + id;
+            const http = new XMLHttpRequest();
+            http.open("GET", url, true);
+            http.send();
+            http.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    const res = JSON.parse(this.responseText);
+                    tblDisco.ajax.reload();
+                    alertas(res.msg, res.icono);
+                }
+            }
+        }
+    })
 }

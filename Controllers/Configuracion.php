@@ -68,6 +68,7 @@ class Configuracion extends Controller
         $data['editorial'] = $this->model->selectDatos('editorial');
         $data['prestamos'] = $this->model->selectDatos('prestamo');
         $data['usuarios'] = $this->model->selectDatos('usuarios');
+        $data['disco'] = $this->model->selectDatos('disco');
         $this->views->getView($this, "home", $data);
     }
     public function grafico()

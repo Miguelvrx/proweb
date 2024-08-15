@@ -22,7 +22,7 @@ function frmLogin(e) {
         http.onreadystatechange = function () {
             if (this.readyState == 4) { 
                 if (this.status == 200) {
-                    console.log("Respuesta del servidor:", this.responseText); // Agregado para depuración
+                    console.log("Respuesta del servidor:", this.responseText); 
 
                     try {
                         const res = JSON.parse(this.responseText);

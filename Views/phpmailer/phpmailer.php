@@ -10,6 +10,10 @@ require 'Views\vendor\autoload.php';
 
 $output = ''; 
 
+if (isset($_POST['submit'])) {
+    sendEmail($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message']);
+}
+
 function sendEmail($name, $email, $subject, $message) {
     global $output;
 
@@ -20,7 +24,7 @@ function sendEmail($name, $email, $subject, $message) {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'migueliletl333@gmail.com';
-        $mail->Password = '';
+        $mail->Password = 'goskewjjzsivusjw';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
@@ -103,10 +107,6 @@ function sendEmail($name, $email, $subject, $message) {
                     <h5>' . $e->getMessage() . '</h5>
                   </div>';
     }
-}
-
-if (isset($_POST['submit'])) {
-    sendEmail($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message']);
 }
 
 ?>

@@ -28,7 +28,7 @@
         <div class="login-box">
             <!-- Formulario del login -->
             <form class="login-form" id="frmLogin" onsubmit="frmLogin(event);">
-                <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Iniciar Sensión</h3>
+                <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Iniciar Sesión</h3>
                 <!-- Campo de usuario -->
                 <div class="form-group">
                     <label class="control-label">Usuario</label>
@@ -44,7 +44,7 @@
                     </label>
                 </div>
                 <div class="input-container">
-                    <div style="position: relative; margin-left: -1px; top: -15px;" class="g-recaptcha" data-sitekey=""></div>
+                    <div style="position: relative; margin-left: -1px; top: -15px;" class="g-recaptcha" data-sitekey="6Lcb3xgqAAAAANqUD_N3Wz0FuxbLo7qHm8eNeYsM"></div>
                 </div>
                 <!-- Alerta de error (oculta por defecto) -->
                 <div class="alert alert-danger d-none" role="alert" id="alerta"></div>

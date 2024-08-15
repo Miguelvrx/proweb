@@ -47,6 +47,14 @@
         </div>
     </div>
     <div class="col-md-6 col-lg-3">
+        <div class="widget-small warning coloured-icon"><i class="icon fa fa-graduation-cap fa-3x"></i>
+            <a class="info" href="<?php echo base_url; ?>Disco">
+                <h4>Disco</h4>
+                <p><b><?php echo $data['disco']['total'] ?></b></p>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
         <div class="widget-small danger coloured-icon"><i class="icon fa fa-hourglass-start fa-3x"></i>
             <a class="info" href="<?php echo base_url; ?>Prestamos">
                 <h4>Préstamos</h4>
