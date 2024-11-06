@@ -52,6 +52,7 @@ class Usuarios extends Controller{
     {
         $usuario = strClean($_POST['usuario']);
         $clave = strClean($_POST['clave']);
+        //Agregar la llave genereda 
         $captchaSecretKey = "";
         $captchaResponse = $_POST['g-recaptcha-response'];
     

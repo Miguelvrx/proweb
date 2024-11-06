@@ -24,6 +24,7 @@ function sendEmail($name, $email, $subject, $message) {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'migueliletl333@gmail.com';
+        //Agregar la contraseña de Gmail generado 
         $mail->Password = '';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;

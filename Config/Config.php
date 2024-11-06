@@ -2,7 +2,7 @@
 // Definición de constantes para la configuración de la conexión a la base de datos mediante localhost 
 
 // URL base de la aplicación
-const base_url = "http://localhost:82/proyecto/";
+const base_url = "http://localhost/proyecto-pro/";
 // Dirección del servidor de base de datos (normalmente 'localhost' para entornos locales)
 const host = "localhost";
 // Nombre de usuario para la conexión a la base de datos
